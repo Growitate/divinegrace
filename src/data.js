@@ -91,6 +91,7 @@ export const contacts = [
     name: 'Edwin Farel',
     region: 'India',
     location: 'Vasi, Maharashtra, India',
+    email: 'edwin.farel@divinegraceexports.in',
     displayPhone: '8454813667',
     formattedPhone: '+91 8454813667',
     internationalPhone: '+918454813667',
@@ -101,6 +102,7 @@ export const contacts = [
     name: 'Francis Dsouza',
     region: 'Dubai, UAE',
     location: 'Dubai, United Arab Emirates',
+    email: 'francis.dsouza@divinegraceexports.in',
     displayPhone: '+971-504253256',
     formattedPhone: '+971-504253256',
     internationalPhone: '+971504253256',
@@ -109,12 +111,27 @@ export const contacts = [
   },
 ];
 
+export const emails = [
+  {
+    label: 'Email India',
+    address: 'edwin.farel@divinegraceexports.in',
+  },
+  {
+    label: 'Email UAE',
+    address: 'francis.dsouza@divinegraceexports.in',
+  },
+  {
+    label: 'Email Sales',
+    address: 'sales@divinegraceexports.in',
+  },
+];
+
 export const contact = {
   displayPhone: '8454813667',
   internationalPhone: '+918454813667',
   whatsappUrl:
     'https://wa.me/918454813667?text=Hello%20Divine%20Grace%2C%20I%27d%20like%20to%20discuss%20an%20import%20or%20export%20enquiry.',
-  email: 'edwinfarel1966@gmail.com',
+  emails,
   edwin: contacts[0],
   francis: contacts[1],
   list: contacts,

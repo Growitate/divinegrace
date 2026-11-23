@@ -3,7 +3,6 @@ import { contact, contacts, products, values } from './data.js';
 
 const app = document.querySelector('#app');
 const wa = contact.whatsappUrl;
-const emailLink = `mailto:${contact.email}`;
 const phoneLink = `tel:${contact.internationalPhone}`;
 const art = {
   logo: '/logo.svg',
@@ -44,11 +43,12 @@ function header(active) {
 }
 
 function footer() {
+  const emailLinks = contact.emails.map(({ address }) => `<a href="mailto:${address}">${address}</a>`).join('');
   return `
     <footer class="site-footer">
       <div class="footer-main"><div class="footer-brand"><a class="brand brand-inverse" href="/"><span class="brand-mark">D<span>.</span></span><span class="brand-name">Divine Grace<small>IMPORT · EXPORT</small></span></a><p>Global trade.<br><strong>Personal by nature.</strong></p></div>
         <div class="footer-links"><span>EXPLORE</span><a href="/products">Products</a><a href="/about">Our story</a><a href="/contact">Contact</a></div>
-        <div class="footer-links footer-contact"><span>SAY HELLO</span><a href="mailto:${contact.email}">${contact.email}</a><a href="tel:${contact.edwin.internationalPhone}">Edwin Farel: ${contact.edwin.displayPhone}</a><a href="tel:${contact.francis.internationalPhone}">Francis Dsouza: ${contact.francis.displayPhone}</a><a href="${wa}" target="_blank" rel="noreferrer">WhatsApp ${icon('arrow')}</a></div>
+        <div class="footer-links footer-contact"><span>SAY HELLO</span>${emailLinks}<a href="tel:${contact.edwin.internationalPhone}">Edwin Farel: ${contact.edwin.displayPhone}</a><a href="tel:${contact.francis.internationalPhone}">Francis Dsouza: ${contact.francis.displayPhone}</a><a href="${wa}" target="_blank" rel="noreferrer">WhatsApp ${icon('arrow')}</a></div>
       </div>
       <div class="footer-bottom"><span>© ${new Date().getFullYear()} Divine Grace</span><span>Vasi, India <i></i> Dubai, UAE</span><span class="footer-credit">Built by <a href="https://growitate.com" target="_blank" rel="noopener noreferrer"><strong>GROWITATE</strong></a></span></div>
     </footer>`;
@@ -120,10 +120,13 @@ function aboutPage() {
 }
 
 function contactPage() {
+  const emailRows = contact.emails
+    .map(({ label, address }, index) => `<a class="contact-row" href="mailto:${address}"><span>0${index + 5}</span><b><i class="contact-channel-icon">${icon('mail')}</i>${label}</b><small>${address}</small><i>↗</i></a>`)
+    .join('');
   return `
     <main class="page-main contact-page">
       <section class="page-hero contact-hero"><div class="page-hero-copy"><p class="eyebrow"><span class="eyebrow-mark"></span> YOUR NEXT MOVE</p><h1>Let’s make<br><em>a connection.</em></h1><p>Tell us what you’re looking to import or export. Reach Edwin Farel in India or Francis Dsouza in Dubai directly.</p><a class="button button-orange" href="${wa}" target="_blank" rel="noreferrer">Message us on WhatsApp <span>↗</span></a></div><div class="contact-art"><figure class="hero-showcase-card"><img src="${art.contact}" alt="Isometric 3D illustration of a global trade desk with an emerald-and-gold globe, wax-sealed trade envelope, export sample parcel and brass compass" fetchpriority="high"><figcaption><span>DIRECT ENQUIRIES</span><b>OPEN CHANNEL ↗</b></figcaption></figure></div></section>
-      <section class="contact-section section"><div class="contact-intro"><p class="eyebrow">Choose your way in</p><h2>Let’s talk<br><em>trade.</em></h2><p>Connect with our team across India and the UAE to discuss product category, destination market, and trade specifications.</p><div class="contact-locations"><span>VASI, INDIA</span><i></i><span>DUBAI, UAE</span></div></div><div class="contact-list"><a class="contact-row contact-row-primary" href="${contact.edwin.whatsappUrl}" target="_blank" rel="noreferrer"><span>01</span><b><i class="contact-channel-icon">${icon('whatsapp')}</i>WhatsApp (India)</b><small>Edwin Farel · ${contact.edwin.displayPhone}</small><i>↗</i></a><a class="contact-row contact-row-primary" href="${contact.francis.whatsappUrl}" target="_blank" rel="noreferrer"><span>02</span><b><i class="contact-channel-icon">${icon('whatsapp')}</i>WhatsApp (UAE)</b><small>Francis Dsouza · ${contact.francis.displayPhone}</small><i>↗</i></a><a class="contact-row" href="tel:${contact.edwin.internationalPhone}"><span>03</span><b><i class="contact-channel-icon">${icon('phone')}</i>Call India</b><small>Edwin Farel: ${contact.edwin.displayPhone}</small><i>↗</i></a><a class="contact-row" href="tel:${contact.francis.internationalPhone}"><span>04</span><b><i class="contact-channel-icon">${icon('phone')}</i>Call UAE</b><small>Francis Dsouza: ${contact.francis.displayPhone}</small><i>↗</i></a><a class="contact-row" href="${emailLink}"><span>05</span><b><i class="contact-channel-icon">${icon('mail')}</i>Email</b><small>${contact.email}</small><i>↗</i></a></div></section>
+      <section class="contact-section section"><div class="contact-intro"><p class="eyebrow">Choose your way in</p><h2>Let’s talk<br><em>trade.</em></h2><p>Connect with our team across India and the UAE to discuss product category, destination market, and trade specifications.</p><div class="contact-locations"><span>VASI, INDIA</span><i></i><span>DUBAI, UAE</span></div></div><div class="contact-list"><a class="contact-row contact-row-primary" href="${contact.edwin.whatsappUrl}" target="_blank" rel="noreferrer"><span>01</span><b><i class="contact-channel-icon">${icon('whatsapp')}</i>WhatsApp (India)</b><small>Edwin Farel · ${contact.edwin.displayPhone}</small><i>↗</i></a><a class="contact-row contact-row-primary" href="${contact.francis.whatsappUrl}" target="_blank" rel="noreferrer"><span>02</span><b><i class="contact-channel-icon">${icon('whatsapp')}</i>WhatsApp (UAE)</b><small>Francis Dsouza · ${contact.francis.displayPhone}</small><i>↗</i></a><a class="contact-row" href="tel:${contact.edwin.internationalPhone}"><span>03</span><b><i class="contact-channel-icon">${icon('phone')}</i>Call India</b><small>Edwin Farel: ${contact.edwin.displayPhone}</small><i>↗</i></a><a class="contact-row" href="tel:${contact.francis.internationalPhone}"><span>04</span><b><i class="contact-channel-icon">${icon('phone')}</i>Call UAE</b><small>Francis Dsouza: ${contact.francis.displayPhone}</small><i>↗</i></a>${emailRows}</div></section>
       <section class="contact-bottom"><div><p>Good things begin<br><em>with a hello.</em></p><span>DIVINE GRACE · IMPORT · EXPORT</span></div><a class="button button-green" href="${wa}" target="_blank" rel="noreferrer">Say hello <span>↗</span></a></section>
     </main>`;
 }
