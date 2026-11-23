@@ -50,7 +50,7 @@ function footer() {
         <div class="footer-links"><span>EXPLORE</span><a href="/products">Products</a><a href="/about">Our story</a><a href="/contact">Contact</a></div>
         <div class="footer-links footer-contact"><span>SAY HELLO</span><a href="mailto:${contact.email}">${contact.email}</a><a href="tel:${contact.edwin.internationalPhone}">Edwin Farel: ${contact.edwin.displayPhone}</a><a href="tel:${contact.francis.internationalPhone}">Francis Dsouza: ${contact.francis.displayPhone}</a><a href="${wa}" target="_blank" rel="noreferrer">WhatsApp ${icon('arrow')}</a></div>
       </div>
-      <div class="footer-bottom"><span>© ${new Date().getFullYear()} Divine Grace</span><span>Vasi, India <i></i> Dubai, UAE</span><span class="footer-credit">Built by <a href="https://growitate.com" target="_blank" rel="noopener noreferrer"><strong>GROWITATE</strong></a></span></div>
+      <div class="footer-bottom"><span>© ${new Date().getFullYear()} Divine Grace</span><span>Vasi, India <i></i> Dubai, UAE</span></div>
     </footer>`;
 }
 
