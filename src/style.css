@@ -385,3 +385,5 @@
 }
 .products-page .product-groups{padding-top:64px}
 @media(max-width:700px){.products-page .product-groups{padding-top:40px}}
+.footer-bottom .footer-credit a,.footer-bottom .footer-credit a strong{font-family:'DM Sans',Arial,sans-serif;font-weight:800;letter-spacing:.04em;text-transform:uppercase;font-synthesis:weight}
+.footer-bottom .footer-credit a:hover{color:#f8ca72;text-decoration:underline;text-underline-offset:2px}
